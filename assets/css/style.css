@@ -1,0 +1,64 @@
+body {
+	background: #e6f9ff;
+}
+
+#buttonshere{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+button:focus {
+	background: #4dd2ff;
+	
+}
+
+input[type=text]{
+	color:white;
+	background-color: #99e6ff;
+	font-size: 23px;
+	padding: 10px;
+	border-radius: 8px;
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input[type=submit]{
+	font-size: 26px;
+
+
+}
+#button-form{
+	display: inline-block;
+	float:right;
+	margin-top: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	padding-right: 60px;
+	border-style: solid;
+	border-color: slategray;
+	border-width: 3px;
+
+}
+
+button {
+	background: #99e6ff;
+	color: white;
+	font-size: 24px;
+	display: inline-block;
+	padding: 10px;
+	border-radius: 8px;
+}
+
+p {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+}
+#gifsAppearHere div {
+	display:inline-block;
+	margin-left: 5px;
+
+}
