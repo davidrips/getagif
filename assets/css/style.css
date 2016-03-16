@@ -24,21 +24,41 @@ input[type=text]{
 }
 
 input[type=submit]{
-	font-size: 26px;
+	margin-top: 4px;
+	opacity: .6;
+	font-size: 26pt;
+	width: 255px;
 
 
 }
 #button-form{
-	display: inline-block;
+	display: inline;
 	float:right;
 	margin-top: 30px;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 15px;
+	padding-bottom: 12px;
 	padding-left: 30px;
-	padding-right: 60px;
+	padding-right: 30px;
 	border-style: solid;
 	border-color: slategray;
 	border-width: 3px;
+	clear: both;
+	border-radius: 12px;
+
+}
+
+#ratings{
+	display: inline-block;
+	float:right;
+	margin-top: 15px;
+	padding-bottom: 12px;
+	padding-left: 30px;
+	padding-right: 30px;
+	border-style: solid;
+	border-color: slategray;
+	border-width: 3px;
+	clear: both;
+	border-radius: 12px;
 
 }
 
