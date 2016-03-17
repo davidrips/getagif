@@ -68,18 +68,18 @@ $(document).ready(function(){
         }
     };
 
-    function focused(){
-        for (var i=0; i<searches.length; i++){
-            if ( $('<button>').data('search') == lastClick){
-                $('this').addClass('focused');
-            }else{
-                $('this').removeClass();
-                $('this').addClass('search')
-            }
-        }
-        console.log('got focused')
+    // function focused(){
+    //     for (var i=0; i<searches.length; i++){
+    //         if ( $('<button>').data('search') == lastClick){
+    //             $('this').addClass('focused');
+    //         }else{
+    //             $('this').removeClass();
+    //             $('this').addClass('search')
+    //         }
+    //     }
+    //     console.log('got focused')
 
-    };
+    // };
 
     renderButtons();
     ratingset();
@@ -99,6 +99,12 @@ $(document).ready(function(){
         renderButtons();
         return false
     })
+
+
+    $(document).on('click', 'button', function(){
+          $('button').removeClass('focused'); 
+          $(this).addClass('focused');
+    });
 
     $(document).on('click', '.search', function (){
         lastClick = $(this).data('search');

@@ -10,11 +10,11 @@ button {
 	padding: 10px;
 	border-radius: 8px;
 }
-
+/*
 button:focus {
 	background: #4dd2ff;
 	
-}
+}*/
 
 input[type=text]{
 	color:white;
@@ -39,6 +39,11 @@ p {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
+
+.focused {
+	background: #4dd2ff;
+}
+
 
 #buttonshere{
 	margin-left: 10px;
