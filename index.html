@@ -1,11 +1,14 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <title>GetaGif</title>
+
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </head>
 
 <body>
@@ -13,28 +16,26 @@
   
 
     <form id="button-form">
-    <input type="text" id='newcat'><br>
-    <input id="addnew" type='submit' value='MORE GIFS!!!'>
+    	<input type="text" id='newcat'><br>
+    	<input id="addnew" type='submit' value='MORE GIFS!!!'>
     </form>
-
 
     <form id="ratings">
-    <p>Which ratings do you want to see?</p>
+    	<p>Which ratings do you want to see?</p>
     
-    <input type="checkbox" id="pg" class="rate" value='true' checked="yes"><label for='pg'>PG</label><br>
-
-    <input type="checkbox" id="pg13" class="rate" value='true'checked="yes"> <label for='pg13'>PG-13</label><br>
-
-    <input type="checkbox" id="r" class="rate" checked="yes" value='true'> <label for='r'>R</label><br>
-
-    <input type="submit" id="ratingssubmit" value="Update my results pls">
+    	<input type="checkbox" id="pg" class="rate" value='true' checked="yes">
+    		<label for='pg'>PG</label>
+    		<br>
+    	<input type="checkbox" id="pg13" class="rate" value='true'checked="yes">
+    		<label for='pg13'>PG-13</label>
+    		<br>
+    	<input type="checkbox" id="r" class="rate" checked="yes" value='true'>
+    		<label for='r'>R</label>
+    		<br>
+    	<input type="submit" id="ratingssubmit" value="Update my results pls!">
     </form>
 
+    <div id="gifsAppearHere"></div>
+</body>
 
-    <div id="gifsAppearHere">
-    </div>
-
-    
-
-    </body>
-    </html>
+</html>

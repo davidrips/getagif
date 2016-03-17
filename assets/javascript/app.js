@@ -1,76 +1,17 @@
 $(document).ready(function(){
     var searches = ['OMG', 'LOL', 'WOW', 'NO', 'WTF', 'JK', 'GTFO', 'ILY', 'ROFL', 'LMAO', 'BYE'];
-    console.log(searches)
 
-    function renderButtons(){
-        $("#buttonshere").empty();
-        for (var i=0; i<searches.length; i++){
-            var a= $('<button>');
-            a.addClass('search');
-            a.attr('data-search', searches[i]);
-            a.text(searches[i]);
-            $('#buttonshere').append(a);
-        }
-    };
-
-    renderButtons();
-
-    $('#addnew').on('click', function(){
-        var newsearch = $('#newcat').val().trim();
-        searches.push(newsearch);
-        console.log(searches)
-        
-        renderButtons();
-        return false
-    })
+    var lastClick = 0
     
-    //Clean this up by making all the parts of the if conditions into global vars//
-   
-   function ratingset(){
-
-         if ( ($("#r").is(':checked') == false) && ($("#pg13").is(':checked') == false) && ($("#pg").is(':checked') == false) ){
-                ratingSelected = 'g'
-            } else if (($("#r").is(':checked') == false) && ($("#pg13").is(':checked') == false) && ($("#pg").is(':checked') == true)){
-                ratingSelected = 'pg';
-            } else if (($("#r").is(':checked') == false) && ($("#pg13").is(':checked') == true) && ($("#pg").is(':checked') == true)){
-                ratingSelected = 'pg-13'
-            } else if (($("#r").is(':checked') == true) && ($("#pg13").is(':checked') == true) && ($("#pg").is(':checked') == true)){
-                ratingSelected = 'r'
-            }
-             console.log(ratingSelected);
-    };
-
-    ratingset();
-
-//gotta figure out how to make a doIt() work with the previously clicked event... ///
-    $("#ratingssubmit").on('click', function(){
-        ratingset();
-        doIt(aTest);
-
-        console.log("shouldbe")
-        console.log(ratingSelected)
-        console.log(aTest);
-        return false
-
-    })
-//maybe by defining 'this' as an argument in the doIt function, and then having the original onclick set a value to it? such as, onclick makes test = $(this) whatever it is on the click, and then run doIt(test). 
-
-    
-    function doIt(it) {
-         $('#gifsAppearHere').empty();
+   function doIt(it) {
+        $('#gifsAppearHere').empty();
         var query = it;
-        
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=dc6zaTOxFJmzC&limit=10&rating="+ ratingSelected;
-
-
         $.ajax({
                 url: queryURL,
                 method: 'GET'
         })
-
         .done(function(response) {
-            console.log(response)
-
             var results = response.data;
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $('<div>');
@@ -89,7 +30,7 @@ $(document).ready(function(){
 
             $('.gifImage').on('click', function (){
                 var state = $(this).attr('data-state');
-                if ( state == 'still'){
+                if (state == 'still'){
                     $(this).attr('src', $(this).data('animate'));
                     $(this).attr('data-state', 'animate');
                 }else{
@@ -99,14 +40,70 @@ $(document).ready(function(){
             })  
         });
 
-    }
-    var aTest = 0
+    };
+
+   function ratingset(){
+        var checkR = $("#r").is(':checked');
+        var checkPg13 = $("#pg13").is(':checked');
+        var checkPg = $("#pg").is(':checked');
+        if ((checkR == false) && (checkPg13 == false) && (checkPg == false)){
+                ratingSelected = 'g'
+            } else if ((checkR == false) && (checkPg13 == false) && (checkPg == true)){
+                ratingSelected = 'pg';
+            } else if ((checkR == false) && (checkPg13 == true) && (checkPg == true)){
+                ratingSelected = 'pg-13'
+            } else if ((checkR == true) && (checkPg13 == true) && (checkPg == true)){
+                ratingSelected = 'r'
+            }
+    };
+
+    function renderButtons(){
+        $("#buttonshere").empty();
+        for (var i=0; i<searches.length; i++){
+            var a= $('<button>');
+            a.addClass('search');
+            a.attr('data-search', searches[i]);
+            a.text(searches[i]);
+            $('#buttonshere').append(a);
+        }
+    };
+
+    function focused(){
+        for (var i=0; i<searches.length; i++){
+            if ( $('<button>').data('search') == lastClick){
+                $('this').addClass('focused');
+            }else{
+                $('this').removeClass();
+                $('this').addClass('search')
+            }
+        }
+        console.log('got focused')
+
+    };
+
+    renderButtons();
+    ratingset();
+
+
+    $("#ratingssubmit").on('click', function(){
+        ratingset();
+        doIt(lastClick);
+        return false
+    });
+
+    $('#addnew').on('click', function(){
+        var newsearch = $('#newcat').val().trim();
+        searches.push(newsearch);
+        console.log(searches)
+        
+        renderButtons();
+        return false
+    })
 
     $(document).on('click', '.search', function (){
-        aTest = $(this).data('search');
-        console.log(aTest);
-        doIt(aTest);
-
-
+        lastClick = $(this).data('search');
+        doIt(lastClick);
+        focused()
     });
+
 })

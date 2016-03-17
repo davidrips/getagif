@@ -2,9 +2,13 @@ body {
 	background: #e6f9ff;
 }
 
-#buttonshere{
-	margin-left: 10px;
-	margin-top: 10px;
+button {
+	background: #99e6ff;
+	color: white;
+	font-size: 24px;
+	display: inline-block;
+	padding: 10px;
+	border-radius: 8px;
 }
 
 button:focus {
@@ -25,12 +29,22 @@ input[type=text]{
 
 input[type=submit]{
 	margin-top: 4px;
-	opacity: .6;
+	opacity: .83;
 	font-size: 26pt;
 	width: 255px;
-
-
 }
+
+p {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#buttonshere{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
 #button-form{
 	display: inline;
 	float:right;
@@ -47,6 +61,11 @@ input[type=submit]{
 
 }
 
+#gifsAppearHere div {
+	display:inline-block;
+	margin-left: 5px;
+}
+
 #ratings{
 	display: inline-block;
 	float:right;
@@ -59,26 +78,7 @@ input[type=submit]{
 	border-width: 3px;
 	clear: both;
 	border-radius: 12px;
-
 }
 
-button {
-	background: #99e6ff;
-	color: white;
-	font-size: 24px;
-	display: inline-block;
-	padding: 10px;
-	border-radius: 8px;
-}
 
-p {
-	text-align: center;
-	padding-top: 15px;
-	padding-bottom: 15px;
 
-}
-#gifsAppearHere div {
-	display:inline-block;
-	margin-left: 5px;
-
-}
